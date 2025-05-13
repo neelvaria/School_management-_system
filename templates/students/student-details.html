@@ -9,7 +9,7 @@
                <div class="page-sub-header">
                   <h3 class="page-title">Student Details</h3>
                   <ul class="breadcrumb">
-                     <li class="breadcrumb-item"><a href="students.html">Student</a></li>
+                     <li class="breadcrumb-item"><a href="{% url '' %}">Student</a></li>
                      <li class="breadcrumb-item active">Student Details</li>
                   </ul>
                </div>
@@ -25,13 +25,13 @@
                   </div>
                   <div class="student-profile-head">
                      <div class="profile-bg-img">
-                        <img src="{% static 'assets/img/profile-bg.jpg' %}" alt="Profile">
+                        <img src="" alt="Profile">
                      </div>
                      <div class="row">
                         <div class="col-lg-4 col-md-4">
                            <div class="profile-user-box">
                               <div class="profile-user-img">
-                                 <img src="{% static 'assets/img/profile-user.jpg' %}" alt="Profile">
+                                 <img src="{{student_details.student_image}}" alt="Profile">
                                  <div class="form-group students-up-files profile-edit-icon mb-0">
                                     <div class="uplod d-flex">
                                        <label class="file-upload profile-upbtn mb-0">
@@ -41,8 +41,8 @@
                                  </div>
                               </div>
                               <div class="names-profiles">
-                                 <h4>Bruce Willis</h4>
-                                 <h5>Computer Science</h5>
+                                 <h4>{{student_details.first_name}} {{student_details.last_name}}</h4>
+                                 <h5>{{student_details.section}}</h5>
                               </div>
                            </div>
                         </div>
@@ -86,7 +86,7 @@
                               </div>
                               <div class="views-personal">
                                  <h4>Name</h4>
-                                 <h5>Bruce Willis</h5>
+                                 <h5>{{student_details.first_name}} {{student_details.last_name}}</h5>
                               </div>
                            </div>
                            <div class="personal-activity">
@@ -95,7 +95,7 @@
                               </div>
                               <div class="views-personal">
                                  <h4>Department </h4>
-                                 <h5>Computer Science</h5>
+                                 <h5>{{student_details.section}}</h5>
                               </div>
                            </div>
                            <div class="personal-activity">
@@ -104,7 +104,7 @@
                               </div>
                               <div class="views-personal">
                                  <h4>Mobile</h4>
-                                 <h5>+91 89657 48512</h5>
+                                 <h5>{{student_details.mobile_number}}</h5>
                               </div>
                            </div>
                            <div class="personal-activity">
@@ -113,7 +113,7 @@
                               </div>
                               <div class="views-personal">
                                  <h4>Email</h4>
-                                 <h5><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="81e5e0e8f2f8c1e6ece0e8edafe2eeec">[email&#160;protected]</a></h5>
+                                 <h5><a href="{{student_details.parents.father_email}}" class="__cf_email__" data-cfemail="81e5e0e8f2f8c1e6ece0e8edafe2eeec">[email&#160;protected]</a></h5>
                               </div>
                            </div>
                            <div class="personal-activity">
@@ -122,7 +122,7 @@
                               </div>
                               <div class="views-personal">
                                  <h4>Gender</h4>
-                                 <h5>Male</h5>
+                                 <h5>{{student_details.gender}}</h5>
                               </div>
                            </div>
                            <div class="personal-activity">
@@ -131,7 +131,7 @@
                               </div>
                               <div class="views-personal">
                                  <h4>Date of Birth</h4>
-                                 <h5>22 Apr 1995</h5>
+                                 <h5>{{student_details.dob}}</h5>
                               </div>
                            </div>
                            <div class="personal-activity">
@@ -149,7 +149,7 @@
                               </div>
                               <div class="views-personal">
                                  <h4>Address</h4>
-                                 <h5>480, Estern Avenue, New York</h5>
+                                 <h5>{{student_details.parents.permanent_address}}</h5>
                               </div>
                            </div>
                         </div>

@@ -1,5 +1,6 @@
 from django.db import models
 from slugify import slugify
+from django.utils.safestring import mark_safe
 
 # Create your models here.
 class parents(models.Model):
@@ -34,6 +35,10 @@ class student(models.Model):
     parents = models.ForeignKey(parents, on_delete=models.CASCADE)
     slug = models.SlugField(max_length=255, unique=True, blank=True, null=True)
     
+    def admin_photo(self):
+        return mark_safe('<img src="{}" width="40" height="40" />'.format(self.student_image.url))
+    admin_photo.allow_tags = True
+    
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(f"{self.first_name}-{self.last_name}")
@@ -41,3 +46,4 @@ class student(models.Model):
     
     def __str__(self) -> str:
         return f"{self.first_name} {self.last_name} ({self.student_id})"
+    

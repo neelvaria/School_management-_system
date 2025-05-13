@@ -21,202 +21,196 @@
             <div class="card comman-shadow">
                <div class="card-body">
                   <form method="post" enctype="multipart/form-data">
-   {% csrf_token %}
-   <div class="row">
-      <!-- Student Info -->
-      <div class="col-12 col-sm-4">
-         <div class="form-group local-forms">
-            <label>First Name <span class="login-danger">*</span></label>
-            <input name="first_name" class="form-control" type="text" placeholder="Enter First Name" required>
-         </div>
-      </div>
-      <div class="col-12 col-sm-4">
-         <div class="form-group local-forms">
-            <label>Last Name <span class="login-danger">*</span></label>
-            <input name="last_name" class="form-control" type="text" placeholder="Enter Last Name" required>
-         </div>
-      </div>
-      <div class="col-12 col-sm-4">
-         <div class="form-group local-forms">
-            <label>Student ID</label>
-            <input name="student_id" class="form-control" type="text" placeholder="Enter Student ID" required>
-         </div>
-      </div>
-      <div class="col-12 col-sm-4">
-         <div class="form-group local-forms">
-            <label>Gender <span class="login-danger">*</span></label>
-            <select name="gender" class="form-control" required>
-               <option value="" disabled selected>Select Gender</option>
-               <option value="male">Male</option>
-               <option value="female">Female</option>
-               <option value="other">Other</option>
-            </select>
-         </div>
-      </div>
-      <div class="col-12 col-sm-4">
-         <div class="form-group local-forms calendar-icon">
-            <label>Date Of Birth <span class="login-danger">*</span></label>
-            <input name="dob" class="form-control" type="text" placeholder="YYYY-MM-DD" pattern="\d{4}-\d{2}-\d{2}" required>
-         </div>
-      </div>
-
-      <div class="col-12 col-sm-4">
-         <div class="form-group local-forms">
-            <label>Class<span class="login-danger">*</span></label>
-            <input name="student_class" class="form-control" type="text" required>         
-         </div>
-      </div>
-      <div class="col-12 col-sm-4">
-         <div class="form-group local-forms">
-            <label>Religion <span class="login-danger">*</span></label>
-            <select name="religion" class="form-control" required>
-               <option value="" disabled selected>Please Select Religion</option>
-               <option value="hindu">Hindu</option>
-               <option value="christian">Christian</option>
-               <option value="others">Others</option>
-            </select>
-         </div>
-      </div>
-      <div class="col-12 col-sm-4">
-         <div class="form-group local-forms calendar-icon">
-            <label>Joining Date <span class="login-danger">*</span></label>
-            <input name="joining_date" class="form-control" type="text" placeholder="YYYY-MM-DD" pattern="\d{4}-\d{2}-\d{2}" required>
-         </div>
-      </div>
-      <div class="col-12 col-sm-4">
-         <div class="form-group local-forms">
-            <label>Phone <span class="login-danger">*</span></label>
-            <input name="mobile_number" class="form-control" type="text" placeholder="Enter Phone Number" required>
-         </div>
-      </div>
-      <div class="col-12 col-sm-4">
-         <div class="form-group local-forms">
-            <label>Admission ID <span class="login-danger">*</span></label>
-            <input name="addmission_number" class="form-control" type="text" required>
-         </div>
-      </div>
-      <div class="col-12 col-sm-4">
-         <div class="form-group local-forms">
-            <label>Blood Group <span class="login-danger">*</span></label>
-            <select name="blood_group" class="form-control" required>
-               <option value="" disabled selected>Please Select Group</option>
-               <option>B+</option>
-               <option>A+</option>
-               <option>O+</option>
-               <option>A-</option>
-               <option>B-</option>
-               <option>O-</option>
-               <option>AB+</option>
-               <option>AB-</option>
-            </select>
-         </div>
-      </div>
-      <div class="col-12 col-sm-4">
-         <div class="form-group local-forms">
-            <label>Section <span class="login-danger">*</span></label>
-            <select name="section" class="form-control" required>
-               <option value="" disabled selected>Please Select Section</option>
-               <option value="">B</option>
-               <option>A</option>
-               <option>C</option>
-            </select>
-         </div>
-      </div>
-      <div class="col-12 col-sm-4">
-         <div class="form-group students-up-files">
-            <label>Upload Student Photo (150px X 150px)</label>
-            <div class="uplod">
-               <label class="file-upload image-upbtn mb-0">
-                  Choose File <input name="student_image" type="file" name="student_image" required>
-               </label>
-            </div>
-         </div>
-      </div>
-
-      <!-- Parent Info -->
-          <!-- Parent Information Section -->
+                     {% csrf_token %}
+                     <div class="row">
+                        <!-- Student Info -->
+                        <div class="col-12 col-sm-4">
+                           <div class="form-group local-forms">
+                              <label>First Name <span class="login-danger">*</span></label>
+                              <input name="first_name" class="form-control" type="text" placeholder="Enter First Name" required>
+                           </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                           <div class="form-group local-forms">
+                              <label>Last Name <span class="login-danger">*</span></label>
+                              <input name="last_name" class="form-control" type="text" placeholder="Enter Last Name" required>
+                           </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                           <div class="form-group local-forms">
+                              <label>Student ID</label>
+                              <input name="student_id" class="form-control" type="text" placeholder="Enter Student ID" required>
+                           </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                           <div class="form-group local-forms">
+                              <label>Gender <span class="login-danger">*</span></label>
+                              <select name="gender" class="form-control" required>
+                                 <option value="" disabled selected>Select Gender</option>
+                                 <option value="male">Male</option>
+                                 <option value="female">Female</option>
+                                 <option value="other">Other</option>
+                              </select>
+                           </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                           <div class="form-group local-forms calendar-icon">
+                              <label>Date Of Birth <span class="login-danger">*</span></label>
+                              <input name="dob" class="form-control" type="text" placeholder="YYYY-MM-DD" pattern="\d{4}-\d{2}-\d{2}" required>
+                           </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                           <div class="form-group local-forms">
+                              <label>Class<span class="login-danger">*</span></label>
+                              <input name="student_class" class="form-control" type="text" required>         
+                           </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                           <div class="form-group local-forms">
+                              <label>Religion <span class="login-danger">*</span></label>
+                              <select name="religion" class="form-control" required>
+                                 <option value="" disabled selected>Please Select Religion</option>
+                                 <option value="hindu">Hindu</option>
+                                 <option value="christian">Christian</option>
+                                 <option value="others">Others</option>
+                              </select>
+                           </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                           <div class="form-group local-forms calendar-icon">
+                              <label>Joining Date <span class="login-danger">*</span></label>
+                              <input name="joining_date" class="form-control" type="text" placeholder="YYYY-MM-DD" pattern="\d{4}-\d{2}-\d{2}" required>
+                           </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                           <div class="form-group local-forms">
+                              <label>Phone <span class="login-danger">*</span></label>
+                              <input name="mobile_number" class="form-control" type="text" placeholder="Enter Phone Number" required>
+                           </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                           <div class="form-group local-forms">
+                              <label>Admission ID <span class="login-danger">*</span></label>
+                              <input name="addmission_number" class="form-control" type="text" required>
+                           </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                           <div class="form-group local-forms">
+                              <label>Blood Group <span class="login-danger">*</span></label>
+                              <select name="blood_group" class="form-control" required>
+                                 <option value="" disabled selected>Please Select Group</option>
+                                 <option>B+</option>
+                                 <option>A+</option>
+                                 <option>O+</option>
+                                 <option>A-</option>
+                                 <option>B-</option>
+                                 <option>O-</option>
+                                 <option>AB+</option>
+                                 <option>AB-</option>
+                              </select>
+                           </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                           <div class="form-group local-forms">
+                              <label>Section <span class="login-danger">*</span></label>
+                              <select name="section" class="form-control" required>
+                                 <option value="" disabled selected>Please Select Section</option>
+                                 <option value="">B</option>
+                                 <option>A</option>
+                                 <option>C</option>
+                              </select>
+                           </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                           <div class="form-group students-up-files">
+                              <label>Upload Student Photo (150px X 150px)</label>
+                              <div class="uplod">
+                                 <label class="file-upload image-upbtn mb-0">
+                                 Choose File <input name="student_image" type="file" name="student_image" required>
+                                 </label>
+                              </div>
+                           </div>
+                        </div>
+                        <!-- Parent Info -->
+                        <!-- Parent Information Section -->
                         <div class="col-12 mt-4">
                            <h5 class="form-title student-info">Parent Information <span><a href="javascript:;"><i class="feather-more-vertical"></i></a></span></h5>
                         </div>
-      <div class="col-12 col-sm-4">
-         <div class="form-group local-forms">
-            <label>Father's Name <span class="login-danger">*</span></label>
-            <input name="father_name" class="form-control" type="text" required>
-         </div>
-      </div>
-      <div class="col-12 col-sm-4">
-         <div class="form-group local-forms">
-            <label>Father's Occupation <span class="login-danger">*</span></label>
-            <input name="father_occuption" class="form-control" type="text" required>
-         </div>
-      </div>
-      <div class="col-12 col-sm-4">
-         <div class="form-group local-forms">
-            <label>Father's Mobile <span class="login-danger">*</span></label>
-            <input name="father_mobile" class="form-control" type="text" required>
-         </div>
-      </div>
-      <div class="col-12 col-sm-4">
-         <div class="form-group local-forms">
-            <label>Father's Email <span class="login-danger">*</span></label>
-            <input name="father_email" class="form-control" type="email" required>
-         </div>
-      </div>
-      <div class="col-12 col-sm-4">
-         <div class="form-group local-forms">
-            <label>Mother's Name <span class="login-danger">*</span></label>
-            <input name="mother_name" class="form-control" type="text" required>
-         </div>
-      </div>
-      <div class="col-12 col-sm-4">
-         <div class="form-group local-forms">
-            <label>Mother's Occupation <span class="login-danger">*</span></label>
-            <input name="mother_occuption" class="form-control" type="text" required>
-         </div>
-      </div>
-      <div class="col-12 col-sm-4">
-         <div class="form-group local-forms">
-            <label>Mother's Mobile <span class="login-danger">*</span></label>
-            <input name="mother_mobile" class="form-control" type="text" required>
-         </div>
-      </div>
-      <div class="col-12 col-sm-4">
-         <div class="form-group local-forms">
-            <label>Mother's Email <span class="login-danger">*</span></label>
-            <input name="mother_email" class="form-control" type="email" required>
-         </div>
-      </div>
-
-      <!-- Addresses -->
-      <div class="col-12 col-sm-8">
-         <div class="form-group local-forms">
-            <label>Present Address <span class="login-danger">*</span></label>
-            <textarea name="present_address" class="form-control" rows="3" required></textarea>
-         </div>
-      </div>
-      <div class="col-12 col-sm-8">
-         <div class="form-group local-forms">
-            <label>Permanent Address <span class="login-danger">*</span></label>
-            <textarea name="permanent_address" class="form-control" rows="3" required></textarea>
-         </div>
-      </div>
-
-      <!-- Submit -->
-      <div class="col-12 col-sm-8">
-         <div class="student-submit">
-            <button type="submit" class="btn btn-primary">Submit</button>
-         </div>
-      </div>
-   </div>
-</form>
-
+                        <div class="col-12 col-sm-4">
+                           <div class="form-group local-forms">
+                              <label>Father's Name <span class="login-danger">*</span></label>
+                              <input name="father_name" class="form-control" type="text" required>
+                           </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                           <div class="form-group local-forms">
+                              <label>Father's Occupation <span class="login-danger">*</span></label>
+                              <input name="father_occuption" class="form-control" type="text" required>
+                           </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                           <div class="form-group local-forms">
+                              <label>Father's Mobile <span class="login-danger">*</span></label>
+                              <input name="father_mobile" class="form-control" type="text" required>
+                           </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                           <div class="form-group local-forms">
+                              <label>Father's Email <span class="login-danger">*</span></label>
+                              <input name="father_email" class="form-control" type="email" required>
+                           </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                           <div class="form-group local-forms">
+                              <label>Mother's Name <span class="login-danger">*</span></label>
+                              <input name="mother_name" class="form-control" type="text" required>
+                           </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                           <div class="form-group local-forms">
+                              <label>Mother's Occupation <span class="login-danger">*</span></label>
+                              <input name="mother_occuption" class="form-control" type="text" required>
+                           </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                           <div class="form-group local-forms">
+                              <label>Mother's Mobile <span class="login-danger">*</span></label>
+                              <input name="mother_mobile" class="form-control" type="text" required>
+                           </div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                           <div class="form-group local-forms">
+                              <label>Mother's Email <span class="login-danger">*</span></label>
+                              <input name="mother_email" class="form-control" type="email" required>
+                           </div>
+                        </div>
+                        <!-- Addresses -->
+                        <div class="col-12 col-sm-8">
+                           <div class="form-group local-forms">
+                              <label>Present Address <span class="login-danger">*</span></label>
+                              <textarea name="present_address" class="form-control" rows="3" required></textarea>
+                           </div>
+                        </div>
+                        <div class="col-12 col-sm-8">
+                           <div class="form-group local-forms">
+                              <label>Permanent Address <span class="login-danger">*</span></label>
+                              <textarea name="permanent_address" class="form-control" rows="3" required></textarea>
+                           </div>
+                        </div>
+                        <!-- Submit -->
+                        <div class="col-12 col-sm-8">
+                           <div class="student-submit">
+                              <button type="submit" class="btn btn-primary">Submit</button>
+                           </div>
+                        </div>
+                     </div>
+                  </form>
                </div>
             </div>
          </div>
       </div>
    </div>
 </div>
-
 <script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
 <script src="{% static 'assets/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 <script src="{% static 'assets/js/feather.min.js' %}"></script>
