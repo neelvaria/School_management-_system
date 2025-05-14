@@ -63,7 +63,7 @@ def add_student(request):
             parents=parents_info
         )
         messages.success(request,'Student Added Successfully')
-        return render(request,'students/student_list')
+        return redirect('student_list')
     return render(request,'students/add-student.html')
 
 def student_list(request):
@@ -76,8 +76,8 @@ def student_list(request):
     return render(request,'students/students.html',context)
 
 def edit_student(request,slug):
-    student_details = get_object_or_404(student,slug)
-    parents = student.parents if hasattr(student, 'parents') else None
+    student_details = get_object_or_404(student,slug = slug)
+    parents = student_details.parents if hasattr(student_details, 'parents') else None
     if request.method == 'POST':
         first_name = request.POST.get('first_name')
         last_name = request.POST.get('last_name')
@@ -107,37 +107,37 @@ def edit_student(request,slug):
         parents.save()
         
         
-        student_details.first_name=first_name,
-        student_details.last_name=last_name,
-        student_details.student_id=student_id,
-        student_details.dob=dob,
-        student_details.gender=gender,
-        student_details.student_class=student_class,
-        student_details.religion=religion,
-        student_details.joining_date=joining_date,
-        student_details.mobile_number=mobile_number,
-        student_details.addmission_number=addmission_number,
-        student_details.blood_group=blood_group,
-        student_details.section=section,
-        student_details.student_image=student_image,
+        student_details.first_name=first_name
+        student_details.last_name=last_name
+        student_details.student_id=student_id
+        student_details.dob=dob
+        student_details.gender=gender
+        student_details.student_class=student_class
+        student_details.religion=religion
+        student_details.joining_date=joining_date
+        student_details.mobile_number=mobile_number
+        student_details.addmission_number=addmission_number
+        student_details.blood_group=blood_group
+        student_details.section=section
+        student_details.student_image=student_image
         student_details.save()
         create_notification = (request.user,f"{student_details.first_name} {student_details.last_name} has been Updated",student_details)
         
-        return redirect('student-list')
-    return render(request,'students/edit-student.html',{'student_details':student_details,'parents':parents})
+        return redirect('student_list')
+    return render(request,'students/edit-student.html',{'student_details':student_details,'parents':parents,})
 
 def view_student(request,slug):
     view_student = get_object_or_404(student, student_id = slug)
     context = {
         'view_student': view_student
     }
-    return render(request,'students/student-dashboard.html',context)
+    return render(request,'students/student-details.html',context)
 
 def delete_student(request,slug):
     if request.method == 'POST':
         student_delete = get_object_or_404(student, slug = slug)
         student_delete_name = student_delete.first_name
         student_delete.delete()
-    
-        return redirect('student-list')
+        create_notification = (request.user,f"{student_delete_name} has been Deleted",student_delete)
+        return redirect('student_list')
     return HttpResponseForbidden()

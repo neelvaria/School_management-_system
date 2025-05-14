@@ -9,7 +9,7 @@ class parentadmin(admin.ModelAdmin):
 admin.site.register(parents, parentadmin)
 
 class studentadmin(admin.ModelAdmin):
-    list_display = ('first_name','last_name','student_id','gender','student_class','blood_group','religion','joining_date','mobile_number','addmission_number','section','student_image','parents')
+    list_display = ('first_name','last_name','student_id','gender','student_class','blood_group','religion','joining_date','mobile_number','addmission_number','section','student_image','parents','admin_photo')
     search_fields = ('first_name','last_name','student_id','gender','student_class','religion','joining_date','mobile_number','addmission_number','section','student_image','parents')
     list_filter = ('first_name','last_name','gender','student_class','section')
     readonly_fields = ('student_image',)

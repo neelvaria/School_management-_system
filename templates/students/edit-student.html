@@ -9,7 +9,7 @@
                <div class="page-sub-header">
                   <h3 class="page-title">Edit Students</h3>
                   <ul class="breadcrumb">
-                     <li class="breadcrumb-item"><a href="{% url 'student-list' %}">Student</a></li>
+                     <li class="breadcrumb-item"><a href="{% url 'student_list' %}">Student</a></li>
                      <li class="breadcrumb-item active">Edit Students</li>
                   </ul>
                </div>
@@ -39,7 +39,7 @@
                         <div class="col-12 col-sm-4">
                            <div class="form-group local-forms">
                               <label>Student ID</label>
-                              <input name="student_id" class="form-control" type="text" value="student_details.student_id" >
+                              <input name="student_id" class="form-control" type="text" value="{{student_details.student_id}}" >
                            </div>
                         </div>
                         <div class="col-12 col-sm-4">
@@ -47,66 +47,66 @@
                               <label>Gender <span class="login-danger">*</span></label>
                               <select name="gender" class="form-control" >
                                  <option value="" disabled selected>Select Gender</option>
-                                 <option value="male"{% if student_details.gender == male %}selected{% endif %}>Male</option>
-                                 <option value="female" {% if student_details.gender == female %}selected{% endif %}>Female</option>
-                                 <option value="other"{% if student_details.gender == other %}selected{% endif %}>Other</option>
+                                 <option value="male"{% if student_details.gender == 'male' %}selected{% endif %}>Male</option>
+                                 <option value="female" {% if student_details.gender == 'female' %}selected{% endif %}>Female</option>
+                                 <option value="other"{% if student_details.gender == 'other' %}selected{% endif %}>Other</option>
                               </select>
                            </div>
                         </div>
                         <div class="col-12 col-sm-4">
                            <div class="form-group local-forms calendar-icon">
                               <label>Date Of Birth <span class="login-danger">*</span></label>
-                              <input name="dob" class="form-control" type="text" placeholder="YYYY-MM-DD" pattern="\d{4}-\d{2}-\d{2}" value="student_details.dob|date:'Y-m-d'">
+                              <input name="dob" class="form-control" type="text" placeholder="YYYY-MM-DD" pattern="\d{4}-\d{2}-\d{2}" value="{{student_details.dob|date:'Y-m-d'}}">
                            </div>
                         </div>
                         <div class="col-12 col-sm-4">
                            <div class="form-group local-forms">
                               <label>Class<span class="login-danger">*</span></label>
-                              <input name="student_class" class="form-control" type="text" value="student_details.student_class">         
+                              <input name="student_class" class="form-control" type="text" value="{{student_details.student_class}}">         
                            </div>
                         </div>
                         <div class="col-12 col-sm-4">
                            <div class="form-group local-forms">
                               <label>Religion <span class="login-danger">*</span></label>
-                              <select name="religion" class="form-control" required>
+                              <select name="religion" class="form-control">
                                  <option value="" disabled selected>Please Select Religion</option>
-                                 <option value="hindu">Hindu</option>
-                                 <option value="christian">Christian</option>
-                                 <option value="others">Others</option>
+                                 <option value="hindu" {%if student_details.religion == 'hindu' %}selected{% endif %}>Hindu</option>
+                                 <option value="christian" {%if student_details.religion == 'christian' %}selected{% endif %}>Christian</option>
+                                 <option value="others" {%if student_details.religion == 'others' %}selected{% endif %}>Others</option>
                               </select>
                            </div>
                         </div>
                         <div class="col-12 col-sm-4">
                            <div class="form-group local-forms calendar-icon">
                               <label>Joining Date <span class="login-danger">*</span></label>
-                              <input name="joining_date" class="form-control" type="text" placeholder="YYYY-MM-DD" pattern="\d{4}-\d{2}-\d{2}" required>
+                              <input name="joining_date" class="form-control" type="text" placeholder="YYYY-MM-DD" pattern="\d{4}-\d{2}-\d{2}" value="{{student_details.joining_date|date:'Y-m-d'}}">
                            </div>
                         </div>
                         <div class="col-12 col-sm-4">
                            <div class="form-group local-forms">
                               <label>Phone <span class="login-danger">*</span></label>
-                              <input name="mobile_number" class="form-control" type="text" placeholder="Enter Phone Number" required>
+                              <input name="mobile_number" class="form-control" type="text" placeholder="Enter Phone Number" value="{{student_details.mobile_number}}">
                            </div>
                         </div>
                         <div class="col-12 col-sm-4">
                            <div class="form-group local-forms">
                               <label>Admission ID <span class="login-danger">*</span></label>
-                              <input name="addmission_number" class="form-control" type="text" required>
+                              <input name="addmission_number" class="form-control" type="text" value="{{student_details.addmission_number}}">
                            </div>
                         </div>
                         <div class="col-12 col-sm-4">
                            <div class="form-group local-forms">
                               <label>Blood Group <span class="login-danger">*</span></label>
-                              <select name="blood_group" class="form-control" required>
-                                 <option value="" disabled selected>Please Select Group</option>
-                                 <option>B+</option>
-                                 <option>A+</option>
-                                 <option>O+</option>
-                                 <option>A-</option>
-                                 <option>B-</option>
-                                 <option>O-</option>
-                                 <option>AB+</option>
-                                 <option>AB-</option>
+                              <select name="blood_group" class="form-control">
+                              <option value="" disabled {% if not student_details.blood_group %}selected{% endif %}>Please Select Group</option>
+                              <option value="B+" {% if student_details.blood_group == "B+" %}selected{% endif %}>B+</option>
+                              <option value="A+" {% if student_details.blood_group == "A+" %}selected{% endif %}>A+</option>
+                              <option value="O+" {% if student_details.blood_group == "O+" %}selected{% endif %}>O+</option>
+                              <option value="A-" {% if student_details.blood_group == "A-" %}selected{% endif %}>A-</option>
+                              <option value="B-" {% if student_details.blood_group == "B-" %}selected{% endif %}>B-</option>
+                              <option value="O-" {% if student_details.blood_group == "O-" %}selected{% endif %}>O-</option>
+                              <option value="AB+" {% if student_details.blood_group == "AB+" %}selected{% endif %}>AB+</option>
+                              <option value="AB-" {% if student_details.blood_group == "AB-" %}selected{% endif %}>AB-</option>
                               </select>
                            </div>
                         </div>
@@ -114,87 +114,96 @@
                            <div class="form-group local-forms">
                               <label>Section <span class="login-danger">*</span></label>
                               <select name="section" class="form-control" required>
-                                 <option value="" disabled selected>Please Select Section</option>
-                                 <option value="">B</option>
-                                 <option>A</option>
-                                 <option>C</option>
+                                 <option value="" disabled >Please Select Section</option>
+                                 <option value="B" {% if student_details.section == "B" %}selected{% endif %}>B</option>
+                                 <option value="A" {% if student_details.section == "A" %}selected{% endif %}>A</option>
+                                 <option value="C" {% if student_details.section == "C" %}selected{% endif %}>C</option>
                               </select>
                            </div>
                         </div>
                         <div class="col-12 col-sm-4">
                            <div class="form-group students-up-files">
                               <label>Upload Student Photo (150px X 150px)</label>
+                              {% if student_details.student_image %}
+                              <div class="mb-2">
+                                 <img src="{{ student_details.student_image.url }}" alt="Student Photo" width="150" height="150" style="border-radius: 8px; border: 1px solid #ccc;">
+                              </div>
+                              {% endif %}
                               <div class="uplod">
                                  <label class="file-upload image-upbtn mb-0">
-                                 Choose File <input name="student_image" type="file" name="student_image" required>
+                                 Choose File 
+                                 <input name="student_image" type="file">
                                  </label>
                               </div>
                            </div>
                         </div>
                         <!-- Parent Info -->
                         <!-- Parent Information Section -->
+                        <!-- Parent Info -->
                         <div class="col-12 mt-4">
-                           <h5 class="form-title student-info">Parent Information <span><a href="javascript:;"><i class="feather-more-vertical"></i></a></span></h5>
+                           <h5 class="form-title student-info">Parent Information 
+                              <span><a href="javascript:;"><i class="feather-more-vertical"></i></a></span>
+                           </h5>
                         </div>
                         <div class="col-12 col-sm-4">
                            <div class="form-group local-forms">
                               <label>Father's Name <span class="login-danger">*</span></label>
-                              <input name="father_name" class="form-control" type="text" required>
+                              <input name="father_name" class="form-control" type="text" value="{{ student_details.parents.father_name }}">
                            </div>
                         </div>
                         <div class="col-12 col-sm-4">
                            <div class="form-group local-forms">
                               <label>Father's Occupation <span class="login-danger">*</span></label>
-                              <input name="father_occuption" class="form-control" type="text" required>
+                              <input name="father_occuption" class="form-control" type="text" value="{{ student_details.parents.father_occuption }}" required>
                            </div>
                         </div>
                         <div class="col-12 col-sm-4">
                            <div class="form-group local-forms">
                               <label>Father's Mobile <span class="login-danger">*</span></label>
-                              <input name="father_mobile" class="form-control" type="text" required>
+                              <input name="father_mobile" class="form-control" type="text" value="{{ student_details.parents.father_mobile }}" required>
                            </div>
                         </div>
                         <div class="col-12 col-sm-4">
                            <div class="form-group local-forms">
                               <label>Father's Email <span class="login-danger">*</span></label>
-                              <input name="father_email" class="form-control" type="email" required>
+                              <input name="father_email" class="form-control" type="email" value="{{ student_details.parents.father_email }}" required>
                            </div>
                         </div>
                         <div class="col-12 col-sm-4">
                            <div class="form-group local-forms">
                               <label>Mother's Name <span class="login-danger">*</span></label>
-                              <input name="mother_name" class="form-control" type="text" required>
+                              <input name="mother_name" class="form-control" type="text" value="{{ student_details.parents.mother_name }}" required>
                            </div>
                         </div>
                         <div class="col-12 col-sm-4">
                            <div class="form-group local-forms">
                               <label>Mother's Occupation <span class="login-danger">*</span></label>
-                              <input name="mother_occuption" class="form-control" type="text" required>
+                              <input name="mother_occuption" class="form-control" type="text" value="{{ student_details.parents.mother_occuption }}" required>
                            </div>
                         </div>
                         <div class="col-12 col-sm-4">
                            <div class="form-group local-forms">
                               <label>Mother's Mobile <span class="login-danger">*</span></label>
-                              <input name="mother_mobile" class="form-control" type="text" required>
+                              <input name="mother_mobile" class="form-control" type="text" value="{{ student_details.parents.mother_mobile }}" required>
                            </div>
                         </div>
                         <div class="col-12 col-sm-4">
                            <div class="form-group local-forms">
                               <label>Mother's Email <span class="login-danger">*</span></label>
-                              <input name="mother_email" class="form-control" type="email" required>
+                              <input name="mother_email" class="form-control" type="email" value="{{ student_details.parents.mother_email }}" required>
                            </div>
                         </div>
                         <!-- Addresses -->
                         <div class="col-12 col-sm-8">
                            <div class="form-group local-forms">
                               <label>Present Address <span class="login-danger">*</span></label>
-                              <textarea name="present_address" class="form-control" rows="3" required></textarea>
+                              <textarea name="present_address" class="form-control" rows="3" required>{{ student_details.parents.present_address }}</textarea>
                            </div>
                         </div>
                         <div class="col-12 col-sm-8">
                            <div class="form-group local-forms">
                               <label>Permanent Address <span class="login-danger">*</span></label>
-                              <textarea name="permanent_address" class="form-control" rows="3" required></textarea>
+                              <textarea name="permanent_address" class="form-control" rows="3" required>{{ student_details.parents.permanent_address }}</textarea>
                            </div>
                         </div>
                         <!-- Submit -->

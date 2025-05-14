@@ -9,7 +9,7 @@
                <div class="page-sub-header">
                   <h3 class="page-title">Student Details</h3>
                   <ul class="breadcrumb">
-                     <li class="breadcrumb-item"><a href="{% url '' %}">Student</a></li>
+                     <li class="breadcrumb-item"><a href="">Student</a></li>
                      <li class="breadcrumb-item active">Student Details</li>
                   </ul>
                </div>
@@ -31,7 +31,7 @@
                         <div class="col-lg-4 col-md-4">
                            <div class="profile-user-box">
                               <div class="profile-user-img">
-                                 <img src="{{student_details.student_image}}" alt="Profile">
+                                 <img src="{{view_student.student_image.url}}" alt="Profile">
                                  <div class="form-group students-up-files profile-edit-icon mb-0">
                                     <div class="uplod d-flex">
                                        <label class="file-upload profile-upbtn mb-0">
@@ -41,7 +41,7 @@
                                  </div>
                               </div>
                               <div class="names-profiles">
-                                 <h4>{{student_details.first_name}} {{student_details.last_name}}</h4>
+                                 <h4>{{view_student.first_name}} {{view_student.last_name}}</h4>
                                  <h5>{{student_details.section}}</h5>
                               </div>
                            </div>
@@ -86,7 +86,7 @@
                               </div>
                               <div class="views-personal">
                                  <h4>Name</h4>
-                                 <h5>{{student_details.first_name}} {{student_details.last_name}}</h5>
+                                 <h5>{{view_student.first_name}} {{view_student.last_name}}</h5>
                               </div>
                            </div>
                            <div class="personal-activity">
@@ -95,7 +95,7 @@
                               </div>
                               <div class="views-personal">
                                  <h4>Department </h4>
-                                 <h5>{{student_details.section}}</h5>
+                                 <h5>{{view_student.section}}</h5>
                               </div>
                            </div>
                            <div class="personal-activity">
@@ -104,7 +104,7 @@
                               </div>
                               <div class="views-personal">
                                  <h4>Mobile</h4>
-                                 <h5>{{student_details.mobile_number}}</h5>
+                                 <h5>{{view_student.mobile_number}}</h5>
                               </div>
                            </div>
                            <div class="personal-activity">
@@ -113,7 +113,7 @@
                               </div>
                               <div class="views-personal">
                                  <h4>Email</h4>
-                                 <h5><a href="{{student_details.parents.father_email}}" class="__cf_email__" data-cfemail="81e5e0e8f2f8c1e6ece0e8edafe2eeec">[email&#160;protected]</a></h5>
+                                 <h5><a href="{{view_student.parents.father_email}}" class="__cf_email__" data-cfemail="81e5e0e8f2f8c1e6ece0e8edafe2eeec">[email&#160;protected]</a></h5>
                               </div>
                            </div>
                            <div class="personal-activity">
@@ -122,7 +122,7 @@
                               </div>
                               <div class="views-personal">
                                  <h4>Gender</h4>
-                                 <h5>{{student_details.gender}}</h5>
+                                 <h5>{{view_student.gender}}</h5>
                               </div>
                            </div>
                            <div class="personal-activity">
@@ -131,7 +131,7 @@
                               </div>
                               <div class="views-personal">
                                  <h4>Date of Birth</h4>
-                                 <h5>{{student_details.dob}}</h5>
+                                 <h5>{{view_student.dob}}</h5>
                               </div>
                            </div>
                            <div class="personal-activity">
@@ -149,7 +149,7 @@
                               </div>
                               <div class="views-personal">
                                  <h4>Address</h4>
-                                 <h5>{{student_details.parents.permanent_address}}</h5>
+                                 <h5>{{view_student.parents.permanent_address}}</h5>
                               </div>
                            </div>
                         </div>
@@ -202,7 +202,7 @@
                               <h4>About Me</h4>
                            </div>
                            <div class="hello-park">
-                              <h5>Hello I am Daisy Parks</h5>
+                              <h5><h5>Hello I am {{ student_details.first_name }} {{ student_details.last_name }}</h5>
                               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur officia deserunt mollit anim id est laborum.</p>
                               <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
                            </div>
